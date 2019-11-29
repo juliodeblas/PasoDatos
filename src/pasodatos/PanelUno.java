@@ -18,9 +18,10 @@ import javax.swing.JPanel;
 public class PanelUno extends JPanel implements ActionListener{
 
     JButton boton1;
+    PanelDos p2;
     
-    public PanelUno() {
-        
+    public PanelUno(PanelDos p) {
+        this.p2 = p;
         initGUI();
         configurarPanel();
         acciones();
@@ -44,6 +45,8 @@ public class PanelUno extends JPanel implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
+        p2.getModelo().addElement("dcvfvfv");
+             
     }
 
     

@@ -18,8 +18,10 @@ public class PanelDos extends JPanel {
 
     DefaultListModel modelo;
     JList list;
-    
+    Ventana v;
+
     public PanelDos() {
+        this.v = v;
         initGUI();
         configurarPanel();
     }
@@ -36,6 +38,14 @@ public class PanelDos extends JPanel {
     private void configurarPanel() {
         this.setLayout(new BorderLayout());
         this.add(list);
+    }
+
+    public DefaultListModel getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(DefaultListModel modelo) {
+        this.modelo = modelo;
     }
 
 }

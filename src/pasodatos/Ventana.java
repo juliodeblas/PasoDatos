@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -21,13 +22,14 @@ import javax.swing.WindowConstants;
  */
 public class Ventana extends JFrame implements ActionListener {
 
-    PanelUno panelUno;
-    PanelDos panelDos;
-    JMenuBar barra;
-    JMenu menu;
-    JMenuItem itemUno, itemDos;
-    Container container;
-    CardLayout cardLayout;
+    private PanelUno panelUno;
+    private PanelDos panelDos;
+    private JMenuBar barra;
+    private JMenu menu;
+    private JMenuItem itemUno, itemDos;
+    private Container container;
+    private CardLayout cardLayout;
+    private ArrayList listaDatos;
 
     public void initGUI() {
         instancias();
@@ -41,13 +43,14 @@ public class Ventana extends JFrame implements ActionListener {
 
     private void instancias() {
         cardLayout = new CardLayout();
-        panelUno = new PanelUno();
+        panelUno = new PanelUno(panelDos);
         panelDos = new PanelDos();
         barra = new JMenuBar();
         menu = new JMenu();
         itemUno = new JMenuItem("Agregar");
         itemDos = new JMenuItem("Listar");
         container = this.getContentPane();
+        listaDatos = new ArrayList();
     }
 
     private void configurarMenu() {
@@ -76,4 +79,15 @@ public class Ventana extends JFrame implements ActionListener {
         itemUno.addActionListener(this);
         itemDos.addActionListener(this);
     }
+
+    public ArrayList getListaDatos() {
+        return listaDatos;
+    }
+
+    public void setListaDatos(ArrayList listaDatos) {
+        this.listaDatos = listaDatos;
+    }
+
+    
+
 }
